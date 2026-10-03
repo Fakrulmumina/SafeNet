@@ -26,15 +26,15 @@ Traditional phishing protection (Google Safe Browsing, PhishTank blocklists) is 
 ```
 SafeNet/
 ├── ml/
-│   ├── feature\_engineering.py   # Extracts lexical/statistical features from a URL
-│   ├── build\_real\_dataset.py    # Combines PhishTank + Tranco into a labeled dataset
-│   ├── enrich\_legit\_urls.py     # Adds realistic paths to legitimate URLs (avoids shortcut bias)
-│   ├── train\_model.py           # Trains \& evaluates the Random Forest classifier
-│   └── safenet\_model.joblib     # Saved trained model
+│   ├── feature\\\_engineering.py   # Extracts lexical/statistical features from a URL
+│   ├── build\\\_real\\\_dataset.py    # Combines PhishTank + Tranco into a labeled dataset
+│   ├── enrich\\\_legit\\\_urls.py     # Adds realistic paths to legitimate URLs (avoids shortcut bias)
+│   ├── train\\\_model.py           # Trains \\\& evaluates the Random Forest classifier
+│   └── safenet\\\_model.joblib     # Saved trained model
 ├── datasets/
-│   ├── verified\_online.csv      # Raw PhishTank export (phishing URLs)
-│   ├── tranco\_Q2X24.csv         # Raw Tranco top-sites list (legitimate domains)
-│   └── real\_dataset\_enriched.csv # Final combined, labeled training dataset
+│   ├── verified\\\_online.csv      # Raw PhishTank export (phishing URLs)
+│   ├── tranco\\\_Q2X24.csv         # Raw Tranco top-sites list (legitimate domains)
+│   └── real\\\_dataset\\\_enriched.csv # Final combined, labeled training dataset
 └── README.md
 ```
 
@@ -52,19 +52,19 @@ SafeNet/
 ```bash
 pip install pandas scikit-learn joblib
 cd ml
-python train\_model.py
+python train\\\_model.py
 ```
 
-This loads `datasets/real\_dataset\_enriched.csv`, extracts features, trains the classifier, prints evaluation metrics, and saves the model to `safenet\_model.joblib`.
+This loads `datasets/real\\\_dataset\\\_enriched.csv`, extracts features, trains the classifier, prints evaluation metrics, and saves the model to `safenet\\\_model.joblib`.
 
 To use the trained model on a new URL:
 
 ```python
 import joblib, pandas as pd
-from feature\_engineering import extract\_features
+from feature\\\_engineering import extract\\\_features
 
-model = joblib.load('safenet\_model.joblib')
-features = pd.DataFrame(\[extract\_features("http://example-url-to-check.com")])
+model = joblib.load('safenet\\\_model.joblib')
+features = pd.DataFrame(\\\[extract\\\_features("http://example-url-to-check.com")])
 prediction = model.predict(features)   # 1 = phishing, 0 = legitimate
 ```
 
@@ -72,7 +72,7 @@ prediction = model.predict(features)   # 1 = phishing, 0 = legitimate
 
 |Name|Role|
 |-|-|
-|FAKRUL Mumina H - 23TD0759|Team Lead — ML Pipeline|
+|Fakrul Mumina H - 23TD0759|Team Lead — ML Pipeline|
 |Ragavi R - 23TD0779|Co-ordinator — Browser Extension|
 |Kavitha M - 23TD0765|Documentation \& Literature Review|
 |Yoga Priyankha S - 23TD0796|Testing \& Evaluation|
